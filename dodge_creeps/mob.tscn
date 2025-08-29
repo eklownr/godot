@@ -59,6 +59,7 @@ sprite_frames = SubResource("SpriteFrames_pcqmr")
 animation = &"fly"
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(1, 1.00278)
 rect = Rect2(0, 0, 480, 720)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
