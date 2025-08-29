@@ -1,25 +1,26 @@
 extends Node
 
 @export var mob_scene: PackedScene
-var score
+var score := 0
 
 
-func _ready():
-	score = 0
-
-	
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
+	$Music.stop()
+	$DeathSound.play()
 
 
 func new_game():
+	score = 0
+	# kill all mobs before new game starts
+	get_tree().call_group("mobs", "queue_free")
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
-	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	$Music.play()
 	
 	
 func _on_player_hit() -> void:

@@ -33,6 +33,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_37p78")
 theme_override_font_sizes/font_size = 48
 text = "Dodge the Creeps!"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="StartButton" type="Button" parent="."]
