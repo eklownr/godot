@@ -11,17 +11,18 @@ config_version=5
 [application]
 
 config/name="3d_dodge_the_creeps"
+run/main_scene="uid://b61sab5uyccvf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MusicPlayer="*res://music_player.tscn"
+
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [filesystem]
 
@@ -59,3 +60,9 @@ jump={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="player"
+3d_physics/layer_2="enemies"
+3d_physics/layer_3="world"
