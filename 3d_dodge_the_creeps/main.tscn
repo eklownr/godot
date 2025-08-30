@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b61sab5uyccvf"]
+[gd_scene load_steps=5 format=3 uid="uid://b61sab5uyccvf"]
 
-[ext_resource type="PackedScene" uid="uid://d0ypm0v45pwdv" path="res://art/player.glb" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bsw86uilrdu7q" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://d0yivk0ubmujt" path="res://player.tscn" id="2_0xm2m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(60, 2, 60)
@@ -9,30 +10,36 @@ size = Vector3(60, 2, 60)
 size = Vector3(60, 2, 60)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_0xm2m")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4, 12, -4.5)
-light_color = Color(0.988235, 0.988235, 1, 1)
-light_energy = 1.646
+transform = Transform3D(0.92388, -0.345404, 0.164749, 0, 0.430511, 0.902585, -0.382683, -0.83388, 0.39774, 12.7706, 12, -2.81138)
+top_level = true
+light_color = Color(0.971465, 0.930916, 0.846361, 1)
+light_energy = 1.332
 shadow_enabled = true
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_7dm0k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_ig7tw")
 
-[node name="player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
 [node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1, 2)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, 4)
 top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.8, 2.70711, 2.4537)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7.82297, 9.86934)
+top_level = true
+projection = 1
 fov = 146.25
+size = 18.0
+far = 100.0
+
+[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
