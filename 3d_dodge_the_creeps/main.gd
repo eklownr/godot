@@ -35,4 +35,5 @@ func _unhandled_input(event):
 
 func _on_player_hit() -> void:
 	$MobTimer.stop()
+	$MusicPlayer.stop()
 	$UserInterface/Retry.show()
