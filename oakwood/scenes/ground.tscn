@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://ojmkbnihp4ot"]
+
+[ext_resource type="Texture2D" uid="uid://c4740kvyf10ws" path="res://asset/oak_woods_v1.0/decorations/grass_1.png" id="1_yh8r4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh8r4"]
+size = Vector2(30, 367)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv0v5"]
+size = Vector2(642, 13)
+
+[node name="Ground" type="Node"]
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollWall" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(0, 173.5)
+shape = SubResource("RectangleShape2D_yh8r4")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollWall" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(6399, 163)
+shape = SubResource("RectangleShape2D_yh8r4")
+
+[node name="GrounLevel" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="collGround" type="CollisionShape2D" parent="GrounLevel"]
+position = Vector2(3197, 363)
+scale = Vector2(10, 1)
+shape = SubResource("RectangleShape2D_lv0v5")
+
+[node name="Grass2" type="Sprite2D" parent="GrounLevel"]
+position = Vector2(273, 366)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass3" type="Sprite2D" parent="GrounLevel"]
+position = Vector2(832, 366)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass4" type="Sprite2D" parent="GrounLevel"]
+position = Vector2(1393, 366)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass5" type="Sprite2D" parent="GrounLevel"]
+position = Vector2(-289, 366)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")

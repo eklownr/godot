@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://kpicss3hihji"]
+
+[ext_resource type="PackedScene" uid="uid://c4exuprw8h1mn" path="res://scenes/bg.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c185xwq278exu" path="res://scenes/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ojmkbnihp4ot" path="res://scenes/ground.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bqnpk0gw7xyet" path="res://scenes/shop.tscn" id="4_1bvp3"]
+
+[sub_resource type="GDScript" id="GDScript_1bvp3"]
+script/source = "extends Node
+
+
+func _ready() -> void:
+	pass
+	
+"
+
+[node name="Main" type="Node"]
+script = SubResource("GDScript_1bvp3")
+
+[node name="BG" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Ground" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="Shop" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(323, 297)
+scale = Vector2(2, 2)
+collision_mask = 6
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(320, 190)
+scale = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
