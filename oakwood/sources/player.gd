@@ -71,7 +71,8 @@ func state_jump_anim() -> void:
 		anim.play()
 	 
 func powreup_anim() -> void:
-	if is_on_floor() and powerup_state == true and velocity.x == 0:
+	if is_on_floor() and powerup_state == true:
+		# and velocity.x == 0:
 		anim.play("power_up")
 
 
