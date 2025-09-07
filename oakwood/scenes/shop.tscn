@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bqnpk0gw7xyet"]
 
-[ext_resource type="Script" uid="uid://dsgh7cn65k47w" path="res://sources/shop.gd" id="1_e7rdd"]
+[ext_resource type="Script" uid="uid://dsgh7cn65k47w" path="res://scripts/shop.gd" id="1_e7rdd"]
 [ext_resource type="Texture2D" uid="uid://fj254xt4pyx3" path="res://asset/oak_woods_v1.0/decorations/shop_anim.png" id="1_viryw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7rdd"]
