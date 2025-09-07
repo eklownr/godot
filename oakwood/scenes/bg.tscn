@@ -9,7 +9,7 @@
 [node name="BG1" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.1, 0.1)
 repeat_size = Vector2(640, 0)
-repeat_times = 2
+repeat_times = 4
 
 [node name="Sprite1" type="Sprite2D" parent="BG1"]
 scale = Vector2(2, 2)
@@ -19,7 +19,7 @@ offset = Vector2(160, 90)
 [node name="BG2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.2, 0.2)
 repeat_size = Vector2(640, 0)
-repeat_times = 2
+repeat_times = 4
 
 [node name="Sprite2" type="Sprite2D" parent="BG2"]
 scale = Vector2(2, 2)
@@ -29,7 +29,7 @@ offset = Vector2(160, 90)
 [node name="BG3" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.6, 0.6)
 repeat_size = Vector2(640, 0)
-repeat_times = 2
+repeat_times = 4
 
 [node name="Sprite3" type="Sprite2D" parent="BG3"]
 texture_filter = 1

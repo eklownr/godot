@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://kpicss3hihji"]
+[gd_scene load_steps=7 format=3 uid="uid://kpicss3hihji"]
 
 [ext_resource type="PackedScene" uid="uid://c4exuprw8h1mn" path="res://scenes/bg.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c185xwq278exu" path="res://scenes/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ojmkbnihp4ot" path="res://scenes/ground.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bqnpk0gw7xyet" path="res://scenes/shop.tscn" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://ck5vyto07os4a" path="res://asset/next chapter.wav" id="5_tbgi4"]
 
 [sub_resource type="GDScript" id="GDScript_1bvp3"]
 script/source = "extends Node
@@ -33,3 +34,8 @@ position = Vector2(320, 190)
 scale = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tbgi4")
+volume_db = -21.956
+autoplay = true
