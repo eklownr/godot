@@ -5,6 +5,10 @@ const JUMP_VELOCITY = -400.0
 var dubble_jump 
 var duck_state = false
 var powerup_state = false
+
+enum STATE {IDLE, RUN, JUMP, FALL, DUCK, POWERUP}
+var current_state: STATE   
+
 @onready var camera = $"../Camera"
 @onready var anim = $Anim
 
@@ -22,13 +26,12 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("action") and dubble_jump:
 		velocity.y = JUMP_VELOCITY
 		dubble_jump = false
-		#state_jump_anim() # dubble jump in the air
 		
 	# duck state
 	if Input.is_action_just_pressed("down"):
 		duck_state = true
 	elif Input.is_action_just_released("down"):
-		duck_state = false		
+		duck_state = false
 	
 	# powerup state
 	if Input.is_action_just_pressed("action_z"):
@@ -52,9 +55,9 @@ func _physics_process(delta: float) -> void:
 			
 	else: # Idle or duck
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if is_on_floor() and duck_state == false:
+		if is_on_floor() and duck_state == false and powerup_state == false:
 			$Anim.play("idle")
-		elif duck_state and is_on_floor():
+		elif duck_state and is_on_floor() and powerup_state == false:
 			anim.play("duck")
 	powreup_anim() # check if powerup is playing			
 	move_and_slide()
@@ -70,3 +73,12 @@ func state_jump_anim() -> void:
 func powreup_anim() -> void:
 	if is_on_floor() and powerup_state == true and velocity.x == 0:
 		anim.play("power_up")
+
+
+# set state on player
+func _set_state(new_state: STATE) -> void:
+	if current_state == new_state:
+		return
+	#_exit_state()
+	current_state = new_state
+	#_enter_state()   
