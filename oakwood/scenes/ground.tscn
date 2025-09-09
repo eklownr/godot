@@ -19,11 +19,11 @@ size = Vector2(642, 13)
 
 [node name="Ground" type="Node"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
 collision_layer = 7
 collision_mask = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(244.5, 107)
 shape = SubResource("RectangleShape2D_vjnaj")
 
@@ -48,71 +48,84 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="collGround" type="CollisionShape2D" parent="GrounLevel"]
-position = Vector2(3197, 363)
+position = Vector2(3199, 373)
 scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_lv0v5")
 
 [node name="Grass2" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(273, 366)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass3" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(832, 366)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass4" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(1393, 366)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass6" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(1954, 367)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass7" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(2513, 368)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass8" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(3074, 367)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass9" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(3630, 368)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass10" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(4190, 368)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass11" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(4749, 368)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass12" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(5307, 367)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass13" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(5867, 366)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass14" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(6428, 366)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
 
 [node name="Grass5" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
 position = Vector2(-289, 366)
 scale = Vector2(70, -5.167)
 texture = ExtResource("1_yh8r4")
@@ -131,12 +144,12 @@ texture = ExtResource("3_w5yvf")
 
 [node name="Lamp" type="Sprite2D" parent="GrounLevel"]
 position = Vector2(248.75, 224.25)
-scale = Vector2(2.32609, 4.67544)
+scale = Vector2(2, 4.65)
 texture = ExtResource("4_ct7o8")
 
 [node name="Lamp2" type="Sprite2D" parent="GrounLevel"]
-position = Vector2(2566.5, 224.75)
-scale = Vector2(2.47826, 4.65789)
+position = Vector2(2562, 224.75)
+scale = Vector2(2, 4.658)
 texture = ExtResource("4_ct7o8")
 
 [node name="Rock1" type="Sprite2D" parent="GrounLevel"]
@@ -146,7 +159,7 @@ texture = ExtResource("5_vjnaj")
 
 [node name="Rock2" type="Sprite2D" parent="."]
 position = Vector2(4009, 352)
-scale = Vector2(2, 1)
+scale = Vector2(4, 2)
 texture = ExtResource("6_hokwi")
 
 [node name="Shop" type="Sprite2D" parent="."]
@@ -154,14 +167,13 @@ position = Vector2(4508, 260)
 scale = Vector2(2, 2)
 texture = ExtResource("7_vjnaj")
 
-[node name="Fence1" type="Sprite2D" parent="."]
-position = Vector2(5164, 376)
-scale = Vector2(2, 2)
-texture = ExtResource("2_lmksl")
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -180.0
 offset_top = 284.0
 offset_right = 14.0
 offset_bottom = 324.0
 text = "Escape the MATRIX"
+
+[node name="Ramp" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ramp"]
