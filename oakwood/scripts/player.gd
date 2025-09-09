@@ -1,20 +1,21 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const WALK_SPEED = 100.0
+const JUMP_VELOCITY = -410.0
+const SLIDE_ATACK = 500.0
 var dubble_jump 
+var jump_stat = false
 var duck_state = false
 var powerup_state = false
 var slide_state = false 
 var shild_state = false
 var sword_state = false
+var walk_state = false
 
 @onready var camera = $"../Camera"
 @onready var anim = $Anim
 
-func  _ready() -> void:
-	#anim.connect("animation_finished", _on_anim_finished)
-	pass
    
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,10 +26,14 @@ func _physics_process(delta: float) -> void:
 	# Handle jump and stat
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_stat = true
 		dubble_jump = true
 	elif Input.is_action_just_pressed("up") and dubble_jump:
 		velocity.y = JUMP_VELOCITY
+		jump_stat = true
 		dubble_jump = false
+	elif  Input.is_action_just_released("up"):
+		jump_stat = false
 
 	# Handle slide state		
 	if Input.is_action_just_pressed("action_x") and is_on_floor():
@@ -42,12 +47,17 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("action_z"):
 		shild_state = false
 
+	# Handle walk state		
+	if Input.is_action_just_pressed("action_s"):
+		walk_state = true
+	elif Input.is_action_just_released("action_s"):
+		walk_state = false
+
 	# Handle sword state		
 	if Input.is_action_just_pressed("action_c"):
 		sword_state = true
 	elif Input.is_action_just_released("action_c"):
 		sword_state = false
-
 
 	# Handel duck state
 	if Input.is_action_just_pressed("down"):
@@ -64,20 +74,30 @@ func _physics_process(delta: float) -> void:
 	# Handel right and left. Run and slide.
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
 		camera.position.x = position.x
+		if slide_state and not walk_state: # add extra speed when slide
+			velocity.x = direction * SLIDE_ATACK
+		elif walk_state:
+			velocity.x = direction * WALK_SPEED
+		else:
+			velocity.x = direction * SPEED
+
 		if direction > 0: # direction right
 			anim.flip_h = false
-			if is_on_floor() and slide_state:
+			if is_on_floor() and slide_state and not walk_state:
 				anim.play("slide") # slide right
-			elif  is_on_floor() and not slide_state:
+			elif  is_on_floor() and not slide_state and not walk_state:
 				anim.play("run") # run right
+			elif walk_state and not jump_stat:
+				anim.play("walk")
 		elif  direction < 0: # direction left
 			anim.flip_h = true
-			if is_on_floor() and slide_state:
+			if is_on_floor() and slide_state and not walk_state:
 				anim.play("slide") # slid left
-			elif  is_on_floor() and not slide_state:
+			elif  is_on_floor() and not slide_state and not walk_state:
 				anim.play("run")
+			elif walk_state and not jump_stat:
+				anim.play("walk")
 	else: # Idle, duck, power_up or shild
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor() and not duck_state and not powerup_state and not shild_state and not sword_state:
@@ -106,9 +126,3 @@ func anim_finish():
 	if anim.animation_finished:
 		anim.stop()
 		
-func _on_anim_finished() -> void:
-	pass
-
-
-func _on_anim_animation_looped() -> void:
-	anim.stop()

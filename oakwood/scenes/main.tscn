@@ -1,15 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://kpicss3hihji"]
+[gd_scene load_steps=8 format=3 uid="uid://kpicss3hihji"]
 
 [ext_resource type="PackedScene" uid="uid://c4exuprw8h1mn" path="res://scenes/bg.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c185xwq278exu" path="res://scenes/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ojmkbnihp4ot" path="res://scenes/ground.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bqnpk0gw7xyet" path="res://scenes/shop.tscn" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://ck5vyto07os4a" path="res://asset/next chapter.wav" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://dd76ny8xlk76t" path="res://scenes/audio_stream_player_2d.gd" id="6_tefeu"]
 
 [sub_resource type="GDScript" id="GDScript_1bvp3"]
 script/source = "extends Node
 
+#@onready var audio_player = $AudioStreamPlayer2D
+
 func _ready() -> void:
+	#var music = preload(\"res://asset/next chapter.wav\")
+	#audio_player.stream = music
+	#music.instantiate_playback()
 	pass
 "
 
@@ -37,3 +43,4 @@ position_smoothing_speed = 20.0
 stream = ExtResource("5_tbgi4")
 volume_db = -21.956
 autoplay = true
+script = ExtResource("6_tefeu")
