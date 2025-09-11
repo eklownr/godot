@@ -109,7 +109,7 @@ func _physics_process(delta: float) -> void:
 			anim.flip_h = true
 			if die_state:
 				die()
-			elif is_on_floor() and slide_state and run_state and not die_state:
+			elif is_on_floor() and slide_state and run_state:
 				anim.play("slide") # slid left
 			elif  is_on_floor() and not slide_state and not run_state and not sword_state and not jump_stat:
 				anim.play("walk")
