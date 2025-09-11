@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ojmkbnihp4ot" path="res://scenes/ground.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bqnpk0gw7xyet" path="res://scenes/shop.tscn" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://ck5vyto07os4a" path="res://asset/next chapter.wav" id="5_tbgi4"]
-[ext_resource type="Script" uid="uid://dd76ny8xlk76t" path="res://scenes/audio_stream_player_2d.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://dd76ny8xlk76t" path="res://scripts/audio_stream_player_2d.gd" id="6_tefeu"]
 
 [sub_resource type="GDScript" id="GDScript_1bvp3"]
 script/source = "extends Node
@@ -44,3 +44,5 @@ stream = ExtResource("5_tbgi4")
 volume_db = -21.956
 autoplay = true
 script = ExtResource("6_tefeu")
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]

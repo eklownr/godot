@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const WALK_SPEED = 100.0
+const RUN_SPEED = 300.0
+const WALK_SPEED = 150.0
 const JUMP_VELOCITY = -410.0
-const SLIDE_ATACK = 500.0
+const SLIDE_ATACK_SPEED = 400.0
 var dubble_jump 
 var jump_stat = false
 var duck_state = false
@@ -11,7 +11,9 @@ var powerup_state = false
 var slide_state = false 
 var shild_state = false
 var sword_state = false
-var walk_state = false
+#var walk_state = false # normal state
+var run_state = false
+var die_state = false
 
 @onready var camera = $"../Camera"
 @onready var anim = $Anim
@@ -35,6 +37,13 @@ func _physics_process(delta: float) -> void:
 	elif  Input.is_action_just_released("up"):
 		jump_stat = false
 
+	# Handle die state	TEST	
+	if Input.is_action_just_pressed("action_d"):
+		anim.play("hit")
+		die_state = true
+	elif Input.is_action_just_released("action_d"):
+		die_state = false
+
 	# Handle slide state		
 	if Input.is_action_just_pressed("action_x") and is_on_floor():
 		slide_state = true
@@ -49,9 +58,9 @@ func _physics_process(delta: float) -> void:
 
 	# Handle walk state		
 	if Input.is_action_just_pressed("action_s"):
-		walk_state = true
+		run_state = true
 	elif Input.is_action_just_released("action_s"):
-		walk_state = false
+		run_state = false
 
 	# Handle sword state		
 	if Input.is_action_just_pressed("action_c"):
@@ -75,32 +84,44 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		camera.position.x = position.x
-		if slide_state and not walk_state: # add extra speed when slide
-			velocity.x = direction * SLIDE_ATACK
-		elif walk_state:
-			velocity.x = direction * WALK_SPEED
+		# Set SPEED
+		if slide_state and run_state: # add extra speed when slide
+			velocity.x = direction * SLIDE_ATACK_SPEED
+		elif run_state:
+			velocity.x = direction * RUN_SPEED
 		else:
-			velocity.x = direction * SPEED
+			velocity.x = direction * WALK_SPEED
 
 		if direction > 0: # direction right
 			anim.flip_h = false
-			if is_on_floor() and slide_state and not walk_state:
+			if die_state:
+				die()
+			elif  is_on_floor() and slide_state and run_state:
 				anim.play("slide") # slide right
-			elif  is_on_floor() and not slide_state and not walk_state:
-				anim.play("run") # run right
-			elif walk_state and not jump_stat:
-				anim.play("walk")
+			elif  is_on_floor() and not slide_state and not run_state and not sword_state:
+				anim.play("walk") # run right
+			elif run_state and not jump_stat and not sword_state:
+				anim.play("run")
+			elif sword_state and not run_state and not jump_stat:
+				anim.play("sword")
+			
 		elif  direction < 0: # direction left
 			anim.flip_h = true
-			if is_on_floor() and slide_state and not walk_state:
+			if die_state:
+				die()
+			elif is_on_floor() and slide_state and run_state and not die_state:
 				anim.play("slide") # slid left
-			elif  is_on_floor() and not slide_state and not walk_state:
-				anim.play("run")
-			elif walk_state and not jump_stat:
+			elif  is_on_floor() and not slide_state and not run_state and not sword_state and not jump_stat:
 				anim.play("walk")
-	else: # Idle, duck, power_up or shild
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if is_on_floor() and not duck_state and not powerup_state and not shild_state and not sword_state:
+			elif run_state and not jump_stat and not sword_state:
+				anim.play("run")
+			elif  sword_state and not run_state and not jump_stat:
+				anim.play("sword")
+	else: # No direction: Idle, duck, power_up or shild
+		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
+		if die_state:
+			die()
+		elif  is_on_floor() and not duck_state and not powerup_state and not shild_state and not sword_state:
 			$Anim.play("idle")
 		elif duck_state and is_on_floor() and not powerup_state and not shild_state and not sword_state:
 			anim.play("duck")
@@ -109,7 +130,7 @@ func _physics_process(delta: float) -> void:
 		elif shild_state and not sword_state:
 			anim.play("shild")
 		elif  sword_state:
-			anim.play("sword")	
+			anim.play("sword")
 			
 	move_and_slide()
 
@@ -122,7 +143,6 @@ func state_jump_anim() -> void:
 		anim.play()
 
 
-func anim_finish():
-	if anim.animation_finished:
-		anim.stop()
-		
+func die() -> void:
+	velocity.x = 0
+	anim.play("die")
