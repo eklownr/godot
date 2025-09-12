@@ -134,6 +134,7 @@ animations = [{
 [node name="Enemy" type="Node2D"]
 
 [node name="RedEnemy" type="CharacterBody2D" parent="."]
+scale = Vector2(2, 2)
 script = ExtResource("1_v8rrl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RedEnemy"]
@@ -142,5 +143,5 @@ shape = SubResource("CapsuleShape2D_n2fa0")
 
 [node name="EnemyAnim" type="AnimatedSprite2D" parent="RedEnemy"]
 sprite_frames = SubResource("SpriteFrames_ajb7d")
-animation = &"enemy_walk"
-frame_progress = 0.035652
+animation = &"enemy_idle"
+frame_progress = 0.649711

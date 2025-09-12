@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @onready var anim = $EnemyAnim
 @onready var player = $"/root/Main/Player"
-var enemy_pos = 12
+var close_to_player_stats = false
 
-const SPEED = 150.0
+const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 
 
@@ -24,7 +24,20 @@ func _physics_process(delta: float) -> void:
 	#	velocity.x = direction * SPEED
 	#else:
 	#	velocity.x = move_toward(velocity.x, 0, SPEED)
-	anim.play("enemy_walk")
-	velocity.x = SPEED
+	
+	
+	var direction := global_position.direction_to(player.global_position)
+	if global_position.distance_to(player.global_position) > 100:
+		velocity.x = direction.x * SPEED
+		close_to_player_stats = false
+		anim.play("enemy_walk")
+	else:
+		velocity = Vector2.ZERO  # Stop moving when close
+		close_to_player_stats = true
+		
+	if close_to_player_stats:
+		anim.play("enemy_idle")
+	
+	#velocity.x = move_toward(velocity.x, player.velocity.x, SPEED/2)
 	#velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
