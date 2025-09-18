@@ -163,6 +163,7 @@ scale = Vector2(4, 2)
 texture = ExtResource("6_hokwi")
 
 [node name="Shop" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(4508, 260)
 scale = Vector2(2, 2)
 texture = ExtResource("7_vjnaj")
