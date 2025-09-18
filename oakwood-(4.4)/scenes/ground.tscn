@@ -1,0 +1,179 @@
+[gd_scene load_steps=11 format=3 uid="uid://ojmkbnihp4ot"]
+
+[ext_resource type="Texture2D" uid="uid://c4740kvyf10ws" path="res://asset/oak_woods_v1.0/decorations/grass_1.png" id="1_yh8r4"]
+[ext_resource type="Texture2D" uid="uid://cynbgigqayb3m" path="res://asset/oak_woods_v1.0/decorations/fence_1.png" id="2_lmksl"]
+[ext_resource type="Texture2D" uid="uid://b7bmj0yjljgru" path="res://asset/oak_woods_v1.0/decorations/fence_2.png" id="3_w5yvf"]
+[ext_resource type="Texture2D" uid="uid://dw5qdoxva4fyx" path="res://asset/oak_woods_v1.0/decorations/lamp.png" id="4_ct7o8"]
+[ext_resource type="Texture2D" uid="uid://yxwtx5utotno" path="res://asset/oak_woods_v1.0/decorations/rock_1.png" id="5_vjnaj"]
+[ext_resource type="Texture2D" uid="uid://2hfvxymhvo2t" path="res://asset/oak_woods_v1.0/decorations/rock_2.png" id="6_hokwi"]
+[ext_resource type="Texture2D" uid="uid://lx38g8hpx881" path="res://asset/oak_woods_v1.0/decorations/shop.png" id="7_vjnaj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjnaj"]
+size = Vector2(53, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh8r4"]
+size = Vector2(22, 226)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv0v5"]
+size = Vector2(642, 13)
+
+[node name="Ground" type="Node"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(244.5, 107)
+shape = SubResource("RectangleShape2D_vjnaj")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollWall" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(4, 244)
+shape = SubResource("RectangleShape2D_yh8r4")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollWall" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(6401, 250)
+shape = SubResource("RectangleShape2D_yh8r4")
+
+[node name="GrounLevel" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="collGround" type="CollisionShape2D" parent="GrounLevel"]
+position = Vector2(3199, 373)
+scale = Vector2(10, 1)
+shape = SubResource("RectangleShape2D_lv0v5")
+
+[node name="Grass2" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(273, 366)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass3" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(832, 366)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass4" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(1393, 366)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass6" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(1954, 367)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass7" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(2513, 368)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass8" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(3074, 367)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass9" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(3630, 368)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass10" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(4190, 368)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass11" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(4749, 368)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass12" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(5307, 367)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass13" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(5867, 366)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass14" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(6428, 366)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Grass5" type="Sprite2D" parent="GrounLevel"]
+z_index = 9
+position = Vector2(-289, 366)
+scale = Vector2(70, -5.167)
+texture = ExtResource("1_yh8r4")
+
+[node name="Fence1" type="Sprite2D" parent="GrounLevel"]
+texture_filter = 1
+position = Vector2(6573.88, 265.875)
+scale = Vector2(5.09931, 9.35526)
+texture = ExtResource("2_lmksl")
+
+[node name="Fence2" type="Sprite2D" parent="GrounLevel"]
+texture_filter = 1
+position = Vector2(-202.5, 247.25)
+scale = Vector2(5.81944, 11.3947)
+texture = ExtResource("3_w5yvf")
+
+[node name="Lamp" type="Sprite2D" parent="GrounLevel"]
+position = Vector2(248.75, 224.25)
+scale = Vector2(2, 4.65)
+texture = ExtResource("4_ct7o8")
+
+[node name="Lamp2" type="Sprite2D" parent="GrounLevel"]
+position = Vector2(2562, 224.75)
+scale = Vector2(2, 4.658)
+texture = ExtResource("4_ct7o8")
+
+[node name="Rock1" type="Sprite2D" parent="GrounLevel"]
+position = Vector2(3834, 352)
+scale = Vector2(2, 1)
+texture = ExtResource("5_vjnaj")
+
+[node name="Rock2" type="Sprite2D" parent="."]
+position = Vector2(4009, 352)
+scale = Vector2(4, 2)
+texture = ExtResource("6_hokwi")
+
+[node name="Shop" type="Sprite2D" parent="."]
+position = Vector2(4508, 260)
+scale = Vector2(2, 2)
+texture = ExtResource("7_vjnaj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -180.0
+offset_top = 284.0
+offset_right = 14.0
+offset_bottom = 324.0
+text = "Escape the MATRIX"
+
+[node name="Ramp" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ramp"]

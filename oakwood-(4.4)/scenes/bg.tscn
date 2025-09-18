@@ -1,0 +1,195 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4exuprw8h1mn"]
+
+[ext_resource type="Texture2D" uid="uid://bwx54fwnka2m4" path="res://asset/oak_woods_v1.0/background/background_layer_1.png" id="1_t4gw0"]
+[ext_resource type="Texture2D" uid="uid://67x20g7lwebk" path="res://asset/oak_woods_v1.0/background/background_layer_2.png" id="2_e8j8q"]
+[ext_resource type="Texture2D" uid="uid://cvgid5c7ah433" path="res://asset/oak_woods_v1.0/background/background_layer_3.png" id="3_iq1of"]
+[ext_resource type="Texture2D" uid="uid://c53hwgihd10at" path="res://asset/oak_woods_v1.0/decorations/grass_2.png" id="4_bf1jy"]
+[ext_resource type="Texture2D" uid="uid://b7bmj0yjljgru" path="res://asset/oak_woods_v1.0/decorations/fence_2.png" id="4_w68nc"]
+[ext_resource type="Texture2D" uid="uid://cynbgigqayb3m" path="res://asset/oak_woods_v1.0/decorations/fence_1.png" id="5_bf1jy"]
+
+[node name="BG" type="Node"]
+
+[node name="BG1" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Sprite1" type="Sprite2D" parent="BG1"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_t4gw0")
+offset = Vector2(160, 90)
+
+[node name="BG2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Sprite2" type="Sprite2D" parent="BG2"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_e8j8q")
+offset = Vector2(160, 90)
+
+[node name="BG3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.6, 0.6)
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Sprite3" type="Sprite2D" parent="BG3"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("3_iq1of")
+offset = Vector2(160, 90)
+
+[node name="BG4" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1, 0.1)
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Sprite1" type="Sprite2D" parent="BG4"]
+position = Vector2(0, -9)
+scale = Vector2(2, 2)
+offset = Vector2(160, 90)
+
+[node name="Grass2" type="Sprite2D" parent="BG4"]
+position = Vector2(11, 346)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass19" type="Sprite2D" parent="BG4"]
+position = Vector2(17, 349)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass3" type="Sprite2D" parent="BG4"]
+position = Vector2(34, 347)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass4" type="Sprite2D" parent="BG4"]
+position = Vector2(84, 347)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass5" type="Sprite2D" parent="BG4"]
+position = Vector2(128, 347)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass18" type="Sprite2D" parent="BG4"]
+position = Vector2(139, 352)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass6" type="Sprite2D" parent="BG4"]
+position = Vector2(159, 349)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass7" type="Sprite2D" parent="BG4"]
+position = Vector2(216, 347)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass8" type="Sprite2D" parent="BG4"]
+position = Vector2(229, 348)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass9" type="Sprite2D" parent="BG4"]
+position = Vector2(246, 351)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass10" type="Sprite2D" parent="BG4"]
+position = Vector2(275, 348)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass11" type="Sprite2D" parent="BG4"]
+position = Vector2(275, 348)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass12" type="Sprite2D" parent="BG4"]
+position = Vector2(310, 350)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass13" type="Sprite2D" parent="BG4"]
+position = Vector2(325, 348)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass14" type="Sprite2D" parent="BG4"]
+position = Vector2(336, 350)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass15" type="Sprite2D" parent="BG4"]
+position = Vector2(350, 349)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass16" type="Sprite2D" parent="BG4"]
+position = Vector2(369, 352)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="Grass17" type="Sprite2D" parent="BG4"]
+position = Vector2(387, 350)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bf1jy")
+
+[node name="BG5Front" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.1, 0.1)
+scroll_offset = Vector2(1, 0)
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Fence2" type="Sprite2D" parent="BG5Front"]
+modulate = Color(1, 1, 1, 0.890196)
+z_index = 10
+position = Vector2(-84, 349)
+texture = ExtResource("4_w68nc")
+
+[node name="Fence3" type="Sprite2D" parent="BG5Front"]
+modulate = Color(1, 1, 1, 0.890196)
+z_index = 10
+position = Vector2(-4, 353)
+texture = ExtResource("4_w68nc")
+
+[node name="Fence1" type="Sprite2D" parent="BG5Front"]
+modulate = Color(1, 1, 1, 0.890196)
+z_index = 10
+position = Vector2(73, 353)
+texture = ExtResource("5_bf1jy")
+
+[node name="Fence4" type="Sprite2D" parent="BG5Front"]
+modulate = Color(1, 1, 1, 0.890196)
+z_index = 10
+position = Vector2(153, 360)
+texture = ExtResource("4_w68nc")
+
+[node name="Fence6" type="Sprite2D" parent="BG5Front"]
+modulate = Color(1, 1, 1, 0.890196)
+z_index = 10
+position = Vector2(230, 355)
+texture = ExtResource("4_w68nc")
+
+[node name="Fence8" type="Sprite2D" parent="BG5Front"]
+modulate = Color(1, 1, 1, 0.890196)
+z_index = 10
+position = Vector2(309, 355)
+texture = ExtResource("5_bf1jy")
+
+[node name="Fence5" type="Sprite2D" parent="BG5Front"]
+modulate = Color(1, 1, 1, 0.890196)
+z_index = 10
+position = Vector2(391, 353)
+texture = ExtResource("4_w68nc")
+
+[node name="Fence10" type="Sprite2D" parent="BG5Front"]
+modulate = Color(1, 1, 1, 0.890196)
+z_index = 10
+position = Vector2(475, 352)
+texture = ExtResource("5_bf1jy")
